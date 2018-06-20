@@ -13,7 +13,7 @@ class App < Sinatra::Base
   end
 
   get '/say/:number/:phrase' do
-    @num = params[:number]
+    @num = params[:number].to_i
     @phrase = params[:phrase]
     "#{@phrase*@num}"
   end
@@ -29,8 +29,8 @@ class App < Sinatra::Base
 
   get '/:operation/:number1/:number2' do
     @operation = params[:operation]
-    @num1 = params[:number1]
-    @num2 = params[:number2]
+    @num1 = params[:number1].to_i
+    @num2 = params[:number2].to_i
 
     case @operation.downcase
       when "add"
